@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.petasz.darek.lab_4.MainActivity"
+    android:background="#deeae5">
+    <ScrollView
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        android:padding="16dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <EditText
+                android:id="@+id/imie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Imie" />
+
+            <EditText
+                android:id="@+id/nazwisko"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nazwisko" />
+
+            <EditText
+                android:id="@+id/miasto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Miejscowość" />
+
+            <EditText
+                android:id="@+id/ulica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ulica" />
+
+            <TextView
+                android:id="@+id/tvDataUrodzenia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data urodzenia"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/dataPrzycisk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dodaj datę urodzenia" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Jakie lubisz kolory?"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/zielony"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#21af28"
+                    android:padding="3dp"
+                    android:text="Zielony"
+                    android:textSize="19dp"
+                    android:onClick="zaznacz"/>
+
+                <CheckBox
+                    android:id="@+id/czerwony"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#e90505"
+                    android:padding="3dp"
+                    android:text="Czerwony"
+                    android:textSize="19dp"
+                    android:onClick="zaznacz"/>
+
+                <CheckBox
+                    android:id="@+id/niebieski"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#7388cc"
+                    android:padding="6dp"
+                    android:text="Niebieski"
+                    android:textSize="19dp"
+                    android:onClick="zaznacz"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Ulubione zajęcia?"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#d8dded"
+                    android:padding="6dp"
+                    android:onClick="zaznacz"
+                    android:text="Sport" />
+
+                <CheckBox
+                    android:id="@+id/muzyka"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#d8dded"
+                    android:padding="3dp"
+                    android:onClick="zaznacz"
+                    android:text="Muzyka" />
+
+                <CheckBox
+                    android:id="@+id/czytanie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#d8dded"
+                    android:padding="3dp"
+                    android:onClick="zaznacz"
+                    android:text="Czytanie" />
+
+                <CheckBox
+                    android:id="@+id/szachy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:background="#d8dded"
+                    android:padding="3dp"
+                    android:onClick="zaznacz"
+                    android:text="Szachy" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/zatwierdzAnkietaPrzycisk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="zatwierdzAnkieta"
+                android:text="Zatwierdź ankietę" />
+
+            <TextView
+                android:id="@+id/wyswietlKolory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="ulubione kolory"
+                android:textSize="25dp"/>
+
+            <TextView
+                android:id="@+id/wyswietlZajecia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="ulubione zajęcia"
+                android:textSize="25dp"/>
+
+            <Button
+                android:id="@+id/zatwierdzDanePrzycisk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Podsumowanie" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.petasz.darek.lab_4.SecoundActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/imiePobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Imie: "/>
+        <TextView
+            android:id="@+id/nazwiskoPobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nazwisko: "/>
+        <TextView
+            android:id="@+id/miastoPobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Miasto: "/>
+        <TextView
+            android:id="@+id/ulicaPobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ulica: "/>
+        <TextView
+        android:id="@+id/dataUrodzeniaPobrane"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data urodzenia: "/>
+        <TextView
+            android:id="@+id/ulubioneKoloryPobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ulubione kolory: "/>
+        <TextView
+            android:id="@+id/ulubioneZajeciaPobrane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="usubione zajęcia: "/>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
