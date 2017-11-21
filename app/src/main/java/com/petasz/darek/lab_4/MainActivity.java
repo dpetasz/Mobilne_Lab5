@@ -1,6 +1,7 @@
 package com.petasz.darek.lab_4;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.icu.util.Calendar;
@@ -19,12 +20,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import static com.petasz.darek.lab_4.R.id.dataUrodzeniaPobrane;
 import static com.petasz.darek.lab_4.R.id.imie;
 import static com.petasz.darek.lab_4.R.id.miasto;
 import static com.petasz.darek.lab_4.R.id.nazwisko;
+import static com.petasz.darek.lab_4.R.id.text;
 import static com.petasz.darek.lab_4.R.id.ulica;
 import static com.petasz.darek.lab_4.R.id.ulubioneKoloryPobrane;
 
@@ -37,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     CheckBox cbKolor1, cbKolor2,cbKolor3;
     CheckBox cbZajecie1, cbZajecie2,cbZajecie3, cbZajecie4;
-    TextView tvKolor, tvZajecie;
+    TextView tvKolor, tvZajecie, tvPlik;
 
     EditText imie,nazwisko,miasto, ulica;
 
@@ -46,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView dataUrodzenia;
     private Button dataPrzycisk;
+
+    private String plik = "Lab_5";
 
 
     @Override
@@ -69,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         tvKolor = (TextView) findViewById(R.id.wyswietlKolory);
         tvZajecie = (TextView) findViewById(R.id.wyswietlZajecia);
+
+        tvPlik = (TextView) findViewById(R.id.wyswietlPlik);
 
         dataUrodzenia = (TextView) findViewById(R.id.tvDataUrodzenia);
         dataPrzycisk = (Button) findViewById(R.id.dataPrzycisk);
@@ -244,10 +256,58 @@ public class MainActivity extends AppCompatActivity {
         String i = "Imie: " + imie.getText().toString() + "\n";
         String n = "Nazwisko: " + nazwisko.getText().toString()+ "\n";
         String m = "Miasto: " + miasto.getText().toString()+ "\n";
-        String u = "Ulicaa: " + ulica.getText().toString()+ "\n";
+        String u = "Ulica: " + ulica.getText().toString()+ "\n";
         String dU = "Data urodzenia: "+ dataUrodzenia.getText().toString()+ "\n";
         String uK = tvKolor.getText().toString()+ "\n";
         String uZ = tvZajecie.getText().toString();
         Toast.makeText(this, i +n +m+ u+ dU +uK + uZ,Toast.LENGTH_LONG).show();
+    }
+
+    public void zapiszPlik(View view) {
+        String pobranyTekst = "Imie: " + imie.getText().toString() + "\n"+
+                "Nazwisko: " + nazwisko.getText().toString()+ "\n"+
+                "Miasto: " + miasto.getText().toString()+ "\n"+
+                "Ulica: " + ulica.getText().toString()+ "\n"+
+                "Data urodzenia: "+ dataUrodzenia.getText().toString()+ "\n"+
+                tvKolor.getText().toString()+ "\n"+
+                tvZajecie.getText().toString();
+        try {
+            FileOutputStream fileOutputStream = openFileOutput(plik, Context.MODE_PRIVATE);
+            fileOutputStream.write(pobranyTekst.getBytes());
+            fileOutputStream.close();
+
+            Toast.makeText(getApplicationContext(), "Zapisano dane formularza", Toast.LENGTH_SHORT).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pobierzDane(View view) {
+
+        try {
+            String wyswietlDane ;
+            FileInputStream fileInputStream = openFileInput(plik);
+
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+            StringBuffer stringBuffer = new StringBuffer();
+
+            while ((wyswietlDane = bufferedReader.readLine())!= null)
+            {
+                stringBuffer.append(wyswietlDane + "\n");
+            }
+
+            tvPlik.setText(stringBuffer.toString());
+            tvPlik.setVisibility(View.VISIBLE);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
